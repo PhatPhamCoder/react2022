@@ -23,7 +23,7 @@
                 font-size: 25px;
                 color: grey;
                 cursor: pointer;
-                margin-right: -20px;
+                // margin-right: -20px;
                 margin-left: 30px;
                 z-index: 9999999;
             }
@@ -57,15 +57,38 @@
         .right-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: right;
             width: 25%;
+            padding-right: 50px;
+            font-weight: 700;
+            opacity: 1;
 
             .support {
                 margin-right: 20px;
+                cursor: pointer;
+            }
+
+            .language-vi {
+                margin-right: 20px;
+                cursor: pointer;
+
+                &.active span {
+                    color: orange;
+                }
+            }
+        }
+
+
+        .language-en {
+            cursor: pointer;
+
+            &.active span {
+                color: blue;
             }
         }
     }
 }
+
 
 .home-header-banner {
     background: url('../../assets/images/background.jpg') center center no-repeat;
@@ -87,6 +110,7 @@
             color: white;
             margin-bottom: 8px;
             margin-top: 50px;
+            padding-top: 50px;
         }
 
         .title2 {
