@@ -41,14 +41,49 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='home-header-banner1'>
-                    <div className='home-header-background'></div>
-                    <div className='title1'></div>
-                    <div className='title2'></div>
-                    <div className='search'></div>
-                    <div className='option'></div>
+                <div className='home-header-banner'>
+                    <div className='content-up'>
+                        <div className='title1'>NỀN TẢNG Y TẾ</div>
+                        <div className='title2'>CHĂM SÓC SỨC KHỎE TOÀN DIỆN</div>
+                        <div className='search'>
+                            <i class="fas fa-search"></i>
+                            <input type='text' placeholder='Tìm gói khám' />
+                        </div>
+                    </div>
+                    <div className='content-down'>
+                        <div className='option'>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-hospital-alt"></i></div>
+                                <div className='content-text'>Khám chuyên khoa</div>
+                            </div>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-mobile-alt"></i></div>
+                                <div className='content-text'>Khám từ xa</div>
+                            </div>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-book"></i></div>
+                                <div className='content-text'>Khám tổng quát</div>
+                            </div>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-binoculars"></i></div>
+                                <div className='content-text'>Khám nha khoa</div>
+                            </div>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-medkit"></i></div>
+                                <div className='content-text'>Gói phẫu thuật</div>
+                            </div>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-flask"></i></div>
+                                <div className='content-text'>Sản phẩm y tế</div>
+                            </div>
+                            <div className='content-child'>
+                                <div className='content-icon'><i class="fas fa-ambulance"></i></div>
+                                <div className='content-text'>Sức khỏe doanh nghiệp</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 
