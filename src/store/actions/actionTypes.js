@@ -14,7 +14,7 @@ const actionTypes = Object.freeze({
     //admin
     FETCH_GENDER_START: 'FETCH_GENDER_START',
     FETCH_GENDER_SUCCESS: 'FETCH_GENDER_SUCCESS',
-    FETCH_GENDER_FAIDED: 'FETCH_GENDER_FAIDED',
+    FETCH_GENDER_FAIDED: 'FETCH_GENDER_FAIDED'
 })
 
 export default actionTypes;

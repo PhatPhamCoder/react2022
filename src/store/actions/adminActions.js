@@ -8,18 +8,19 @@ import { getAllCodeService } from '../../services/userService';
 export const fetchGenderStart = () => {
     return async (dispatch, getState) => {
         try {
+            dispatch({ type: actionTypes.FETCH_GENDER_START })
             let res = await getAllCodeService("GENDER");
             if (res && res.errCode === 0) {
-                // console.log('check get state', getState)
-                dispatch(fetchGenderSuccess(res.data));
+                dispatch(fetchGenderSuccess(res.data))
             } else {
                 dispatch(fetchGenderFailed());
             }
         } catch (e) {
             dispatch(fetchGenderFailed());
-            console.log('fetch Gender failed', e)
+            console.log('fetchGenderStart error', e)
         }
     }
+
 }
 
 export const fetchGenderSuccess = (genderData) => ({
