@@ -31,6 +31,7 @@
         "roleid": "Role ID",
         "save": "Save",
         "phonenumber": "Phone Number",
-        "image": "Image"
+        "image": "Image",
+        "edit": "Edit User"
     }
 }

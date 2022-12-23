@@ -24,13 +24,14 @@
         "email": "Email",
         "password": "Mật khẩu",
         "address": "Địa chỉ",
-        "first-name": "Tên người dùng",
-        "last-name": "Họ người dùng",
+        "first-name": "Tên",
+        "last-name": "Họ",
         "gender": "Giới tính",
         "position": "Chức danh",
         "roleid": "Vai trò",
         "save": "Lưu người dùng",
         "phonenumber": "Số điện thoại",
-        "image": "Hình ảnh"
+        "image": "Hình ảnh",
+        "edit": "Lưu thay đổi"
     }
 }
