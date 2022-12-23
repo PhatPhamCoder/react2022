@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService, createNewUserService } from '../../services/userService';
-
+import { getAllCodeService, createNewUserService, getAllUsers, deleteUserService } from '../../services/userService';
+import { ToastContainer, toast } from 'react-toastify';
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START
 // })
@@ -35,7 +35,6 @@ export const fetchGenderFailed = () => ({
 export const fetchPositionStart = () => {
     return async (dispatch, getState) => {
         try {
-            dispatch({ type: actionTypes.FETCH_GENDER_START })
             let res = await getAllCodeService("POSITION");
             if (res && res.errCode === 0) {
                 dispatch(fetchPositionSuccess(res.data))
@@ -62,15 +61,14 @@ export const fetchPositionFailed = () => ({
 export const fetchRoleStart = () => {
     return async (dispatch, getState) => {
         try {
-            dispatch({ type: actionTypes.FETCH_GENDER_START })
             let res = await getAllCodeService("ROLE");
             if (res && res.errCode === 0) {
                 dispatch(fetchRoleSuccess(res.data))
             } else {
-                dispatch(fetchPRoleailed());
+                dispatch(fetchRoleFailed());
             }
         } catch (e) {
-            dispatch(fetchPRoleailed());
+            dispatch(fetchRoleFailed());
             console.log('fetch Start error', e)
         }
     }
@@ -82,7 +80,7 @@ export const fetchRoleSuccess = (roleData) => ({
     data: roleData
 })
 
-export const fetchPRoleailed = () => ({
+export const fetchRoleFailed = () => ({
     type: actionTypes.FETCH_ROLE_FAILED
 })
 
@@ -90,11 +88,12 @@ export const fetchPRoleailed = () => ({
 export const createNewUser = (data) => {
     return async (dispatch, getState) => {
         try {
-            dispatch({ type: actionTypes.FETCH_GENDER_START })
             let res = await createNewUserService(data);
             console.log('Check create user redux: ', res)
             if (res && res.errCode === 0) {
+                toast.success('Create a new user succeed!')
                 dispatch(saveUserSuccess())
+                dispatch(fetchAllUserStart())
             } else {
                 dispatch(saveUserFailed());
             }
@@ -111,4 +110,59 @@ export const saveUserSuccess = () => ({
 
 export const saveUserFailed = () => ({
     type: actionTypes.CREATE_USER_FAILED
+})
+
+export const fetchAllUserStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllUsers("ALL");
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllUserSuccess(res.users.reverse()))
+            } else {
+                toast.error('Fecth all users error')
+                dispatch(fetchAllUserFailed());
+            }
+        } catch (e) {
+            toast.error('Fecth all users error')
+            dispatch(fetchAllUserFailed());
+            console.log('fetch Start error', e)
+        }
+    }
+
+}
+
+export const fetchAllUserSuccess = (data) => ({
+    type: actionTypes.FETCH_ALL_USERS_SUCCESS,
+    users: data
+})
+
+export const fetchAllUserFailed = () => ({
+    type: actionTypes.FETCH_ALL_USERS_FAILED,
+})
+
+export const deleteUser = (userId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await deleteUserService(userId);
+            if (res && res.errCode === 0) {
+                toast.success('Delete a new user succeed!')
+                dispatch(deleteUserSuccess())
+                dispatch(fetchAllUserStart())
+            } else {
+                toast.error('Delete a new user succeed!')
+                dispatch(deleteUserFailed());
+            }
+        } catch (e) {
+            toast.error('Delete a new user succeed!')
+            dispatch(deleteUserFailed());
+        }
+    }
+}
+
+export const deleteUserSuccess = () => ({
+    type: actionTypes.DELETE_USER_SUCCESS
+})
+
+export const deleteUserFailed = () => ({
+    type: actionTypes.DELETE_USER_FAILED
 })

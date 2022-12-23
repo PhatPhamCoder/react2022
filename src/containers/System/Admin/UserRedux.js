@@ -9,6 +9,8 @@ import './UserRedux.scss';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
+import TableManageUser from './TableManageUser';
+
 class UserRedux extends Component {
 
     constructor(props) {
@@ -19,6 +21,8 @@ class UserRedux extends Component {
             positionArr: [],
             previewImgURL: [],
             isOpen: false,
+
+            isUserCreated: false,
 
             email: '',
             password: '',
@@ -75,6 +79,21 @@ class UserRedux extends Component {
                 position: arrPositons && arrPositons.length > 0 ? arrPositons[0].key : ''
             })
         }
+
+        if (prevProps.listUsers !== this.props.listUsers) {
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                phoneNumber: '',
+                address: '',
+                gender: '',
+                position: '',
+                role: '',
+                avatar: ''
+            })
+        }
     }
 
     handleOnChangeImage = (event) => {
@@ -100,6 +119,11 @@ class UserRedux extends Component {
         let isValid = this.checkValidateInput();
         if (isValid === false) return;
 
+        this.setState({
+            ...this.state,
+            isUserCreated: false
+        })
+
         this.props.createNewUser({
             email: this.state.email,
             password: this.state.password,
@@ -111,7 +135,6 @@ class UserRedux extends Component {
             RoleId: this.state.role,
             positionId: this.state.position
         })
-        console.log('before check state save', this.state)
     }
 
     checkValidateInput = () => {
@@ -136,6 +159,7 @@ class UserRedux extends Component {
             ...copyState
         })
     }
+
     render() {
         let genders = this.state.genderArr;
         let roles = this.state.roleArr;
@@ -146,8 +170,6 @@ class UserRedux extends Component {
         let { email, password, firstName, lastName, address, role,
             position, phoneNumber, avatar, gender }
             = this.state;
-
-        console.log('check state component: ', this.state)
         return (
             <div className='user-redux-container'>
                 <div className='title'>
@@ -263,16 +285,20 @@ class UserRedux extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='col-12 my-3'>
                                 <button className='btn btn-primary' type='submit'
                                     onClick={() => this.handleSaveUser()}
                                 >
                                     <FormattedMessage id="manage-user.save" />
                                 </button>
                             </div>
+                            <div className='col-12 mb-5'>
+                                <TableManageUser />
+                            </div>
                         </div>
                     </div>
-                </div >
+                </div>
+
                 {this.state.isOpen === true &&
                     <Lightbox
                         mainSrc={this.state.previewImgURL}
@@ -291,6 +317,7 @@ const mapStateToProps = state => {
         roleRedux: state.admin.roles,
         positionRedux: state.admin.positions,
         isLoadingGender: state.admin.isLoadingGender,
+        listUsers: state.admin.users
     };
 };
 
@@ -299,7 +326,9 @@ const mapDispatchToProps = dispatch => {
         getGenderStart: () => dispatch(actions.fetchGenderStart()),
         getPositionStart: () => dispatch(actions.fetchPositionStart()),
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
-        createNewUser: (data) => dispatch(actions.createNewUser(data))
+        createNewUser: (data) => dispatch(actions.createNewUser(data)),
+        fetchUserRedux: () => dispatch(actions.fetchAllUserStart())
+
     };
 };
 

@@ -4,14 +4,14 @@ const initialState = {
     isLoadingGender: false,
     genders: [],
     roles: [],
-    positions: []
+    positions: [],
+    users: []
 }
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FETCH_GENDER_START:
             state.isLoadingGender = true;
-            console.log('Check fire fetch gender start', action);
             return {
                 ...state,
             }
@@ -19,13 +19,11 @@ const adminReducer = (state = initialState, action) => {
         case actionTypes.FETCH_GENDER_SUCCESS:
             state.genders = action.data;
             state.isLoadingGender = false;
-            console.log('Check fire fetch gender success', action);
             return {
                 ...state,
             }
 
         case actionTypes.FETCH_GENDER_FAIDED:
-            console.log('Check fire fetch gender failed', action);
             state.isLoadingGender = false;
             state.genders = [];
             return {
@@ -50,6 +48,18 @@ const adminReducer = (state = initialState, action) => {
 
         case actionTypes.FETCH_ROLE_FAILED:
             state.roles = [];
+            return {
+                ...state,
+            }
+
+        case actionTypes.FETCH_ALL_USERS_SUCCESS:
+            state.users = action.users;
+            return {
+                ...state,
+            }
+
+        case actionTypes.FETCH_ALL_USERS_FAILED:
+            state.users = [];
             return {
                 ...state,
             }
