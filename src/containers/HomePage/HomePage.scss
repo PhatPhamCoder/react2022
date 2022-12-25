@@ -29,6 +29,10 @@
         width: 48px !important;
     }
 
+    .slick-disabled {
+        display: none !important;
+    }
+
     .slick-prev:before {
         font-size: 30px !important;
         color: black !important;
@@ -74,11 +78,10 @@
                 }
 
                 &.section-outstanding-doctor {
-                    background-image: url('../../assets/outstanding-doctor/bac-si-1.jpg');
+                    // background-image: url('../../assets/outstanding-doctor/bac-si-1.jpg');
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
-                    margin: 0 auto;
                 }
 
                 &.section-hand-book {

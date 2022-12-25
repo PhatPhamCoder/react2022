@@ -33,5 +33,9 @@
         "phonenumber": "Phone Number",
         "image": "Image",
         "edit": "Edit User"
+    },
+    "homepage": {
+        "out-standing-doctor": "Last week's featured doctor",
+        "more-info": "More Info"
     }
 }

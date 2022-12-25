@@ -10,7 +10,7 @@ import Home from '../routes/Home';
 import Login from './Auth/Login';
 import System from '../routes/System';
 import { CustomToastCloseButton } from '../components/CustomToast';
-import HomePage from '../containers/HomePage/HomePage.js'
+import HomePage from '../containers/HomePage/HomePage.js';
 import CustomScrollbars from '../components/CustomScrollbars';
 
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
 import MedicalFacility from './Section/MedicalFacility';
-import OutstandingDoctor from './Section/OutstandingDoctor';
+import OutStandingDoctor from './Section/OutStandingDoctor';
 import HandBook from './Section/HandBook';
 import About from './Section/About';
 import HomeFooter from './Section/HomeFooter';
@@ -14,20 +14,24 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 class HomePage extends Component {
 
+    // handleAfterChange = (event, click, currentSlide) => {
+    //     console.log('check slide load: ', currentSlide)
+    // }
+
     render() {
         let settings = {
             dots: false,
-            infinite: true,
-            speed: 500,
+            infinite: false,
+            speed: 300,
             slidesToShow: 4,
-            slidesToScroll: 1
+            slidesToScroll: 1,
         };
         return (
             <div>
                 <HomeHeader />
                 <Specialty settings={settings} />
                 <MedicalFacility settings={settings} />
-                <OutstandingDoctor settings={settings} />
+                <OutStandingDoctor settings={settings} />
                 <HandBook settings={settings} />
                 <About />
                 <HomeFooter />
