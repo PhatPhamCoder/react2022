@@ -24,6 +24,7 @@
     }
 
     .save-content-doctor {
+        padding-left: 30px;
         margin-top: 20px;
         margin-bottom: 30px;
         outline: none;
@@ -38,6 +39,24 @@
         &:hover {
             opacity: 0.9;
             background: red;
+        }
+    }
+
+    .create-content-doctor {
+        padding-left: 30px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        outline: none;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: rgb(11, 93, 216);
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.9;
         }
     }
 }
