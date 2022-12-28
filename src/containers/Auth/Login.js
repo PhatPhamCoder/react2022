@@ -63,6 +63,7 @@ class Login extends Component {
             isShowPassword: !this.state.isShowPassword
         })
     }
+
     render() {
         return (
             <div className="login-background">
