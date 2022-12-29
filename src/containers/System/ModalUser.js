@@ -32,7 +32,7 @@ class ModalUser extends Component {
     } //bus event
 
     componentDidMount() {
-        console.log('mouting modal')
+        // console.log('mouting modal')
     }
 
     toggle = () => {
