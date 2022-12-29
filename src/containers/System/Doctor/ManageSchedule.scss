@@ -19,13 +19,17 @@
         .btn-select-time {
             outline: none;
             border: none;
-            margin: 0 10px;
+            margin: 20px 5px;
             border-radius: 5px;
             padding: 5px 20px;
             cursor: pointer;
 
-            &.active {}
+            &.active {
+                background-color: orange;
+            }
         }
+
+
     }
 
     .btn-save-schedule {

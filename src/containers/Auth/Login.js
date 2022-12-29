@@ -65,7 +65,7 @@ class Login extends Component {
     }
 
     handleKeyDown = (event) => {
-        console.log('check key down', event)
+
         if (event.key === 'Enter' || event.keycode === 13) {
             this.handleLogin();
         }
