@@ -23,10 +23,11 @@
         }
     }
 
+    .manage-doctor-editor {
+        padding-bottom: 20px;
+    }
+
     .save-content-doctor {
-        padding-left: 30px;
-        margin-top: 20px;
-        margin-bottom: 30px;
         outline: none;
         border: none;
         padding: 5px;
@@ -35,6 +36,8 @@
         background-color: orange;
         color: #fff;
         cursor: pointer;
+        display: flex;
+        margin: 0 auto;
 
         &:hover {
             opacity: 0.9;
@@ -43,9 +46,6 @@
     }
 
     .create-content-doctor {
-        padding-left: 30px;
-        margin-top: 20px;
-        margin-bottom: 30px;
         outline: none;
         border: none;
         padding: 5px;
@@ -54,6 +54,8 @@
         background-color: rgb(11, 93, 216);
         color: #fff;
         cursor: pointer;
+        display: flex;
+        margin: 0 auto;
 
         &:hover {
             opacity: 0.9;
