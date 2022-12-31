@@ -1,6 +1,5 @@
 .doctor-schedule-container {
     height: 100%;
-    border-right: 2px dotted red;
 
     .all-schedule {
         margin-bottom: 10px;
@@ -10,13 +9,12 @@
             border-top: none;
             border-left: none;
             border-right: none;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #ddd;
             width: 150px;
-            text-align: center;
             padding: 5px;
             outline: none;
             font-weight: 600;
-            color: #45c3d2;
+            color: #49bce2;
 
             option {
                 cursor: pointer;
@@ -43,24 +41,36 @@
         }
 
         .time-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            .time-content-btns {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
 
+                button {
+                    min-width: 120px;
+                    outline: none;
+                    border: none;
+                    padding: 8px 10px;
+                    border-radius: 10px;
+                    background-color: #fff04b;
+                    font-weight: 600;
 
-            button {
-                min-width: 120px;
-                outline: none;
-                border: none;
-                padding: 8px 10px;
-                border-radius: 10px;
-                background-color: #fff04b;
-                font-weight: 600;
-
-                &:hover {
-                    color: #fff;
-                    background-color: #45c3d2;
+                    &:hover {
+                        color: #fff;
+                        background-color: #45c3d2;
+                    }
                 }
+
+                .no-schedule {
+                    font-style: italic;
+                    font-size: 14px;
+                }
+            }
+
+            .book-free {
+                margin-top: 10px;
+                font-size: 16px;
+                font-weight: 500;
             }
         }
     }

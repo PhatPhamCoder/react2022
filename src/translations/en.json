@@ -45,5 +45,13 @@
         "title": "Manage doctor's examination plan",
         "choose-doctor": "Choose Doctor",
         "choose-date": "Choose Date"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "There are currently no appointments available for the time you choose",
+            "choose": "Choose",
+            "book-free": "book free"
+        }
     }
 }
