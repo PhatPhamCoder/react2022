@@ -1,10 +1,10 @@
 .doctor-detail-container {
     width: 100%;
-    margin: 62px 40px 10px 40px;
+
 
     .intro-doctor {
         display: flex;
-        width: 100%;
+        margin: 70px 100px 20px 100px;
 
         .content-left {
             width: 30%;
@@ -21,6 +21,7 @@
             display: flex;
             flex-direction: column;
             padding-left: 10px;
+            padding-top: 10px;
 
             .up {
                 font-size: 20px;
@@ -31,12 +32,12 @@
 
     .schedule-doctor {
         margin: 0 100px;
-        display: flex;
+
         height: 200px;
-        border: 1px solid red;
 
         .content-left {
             width: 50%;
+            border: right 1px solid #333;
         }
 
         .content-right {
