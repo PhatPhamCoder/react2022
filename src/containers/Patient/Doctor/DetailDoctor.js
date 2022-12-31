@@ -5,13 +5,14 @@ import HomeFooter from '../../HomePage/Section/HomeFooter';
 import './DetailDoctor.scss';
 import { getDetailInforDoctor } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils';
+import DoctorSchedule from './DoctorSchedule';
 
 class DetailDoctor extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            detaileDoctor: {}
+            detailDoctor: {}
         }
     }
 
@@ -21,7 +22,7 @@ class DetailDoctor extends Component {
             let res = await getDetailInforDoctor(id);
             if (res && res.errCode === 0) {
                 this.setState({
-                    detaileDoctor: res.data
+                    detailDoctor: res.data
                 })
             }
 
@@ -36,11 +37,11 @@ class DetailDoctor extends Component {
     render() {
         console.log('check state', this.state);
         let { language } = this.props;
-        let { detaileDoctor } = this.state;
+        let { detailDoctor } = this.state;
         let nameVi = '', nameEn = '';
-        if (detaileDoctor && detaileDoctor.positionData) {
-            nameVi = `${detaileDoctor.positionData.valueVi}, ${detaileDoctor.lastName} ${detaileDoctor.firstName}`
-            nameEn = `${detaileDoctor.positionData.valueEn}, ${detaileDoctor.firstName} ${detaileDoctor.lastName}`
+        if (detailDoctor && detailDoctor.positionData) {
+            nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName}`
+            nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`
         }
         return (
             <React.Fragment>
@@ -48,7 +49,7 @@ class DetailDoctor extends Component {
                 <div className='doctor-detail-container'>
                     <div className='intro-doctor'>
                         <div className='content-left'
-                            style={{ backgroundImage: `url(${detaileDoctor.image ? detaileDoctor.image : ''})` }}
+                            style={{ backgroundImage: `url(${detailDoctor.image ? detailDoctor.image : ''})` }}
                         >
                         </div>
                         <div className='content-right'>
@@ -56,22 +57,29 @@ class DetailDoctor extends Component {
                                 {language === LANGUAGES.VI ? nameVi : nameEn}
                             </div>
                             <div className='down'>
-                                {detaileDoctor.markdown && detaileDoctor.markdown.description
+                                {detailDoctor.markdown && detailDoctor.markdown.description
                                     && <span>
-                                        {detaileDoctor.markdown.description}
+                                        {detailDoctor.markdown.description}
                                     </span>
                                 }
                             </div>
                         </div>
                     </div>
                     <div className='schedule-doctor'>
+                        <div className='content-left'>
+                            <DoctorSchedule
+                                doctorIdFromParent={detailDoctor && detailDoctor.id ? detailDoctor.id : -1}
+                            />
+                        </div>
+                        <div className='content-right'>
 
+                        </div>
                     </div>
-                    <div className='detail-info'>
-                        {detaileDoctor.markdown && detaileDoctor.markdown.contentHTML
+                    <div className='detail-info-doctor'>
+                        {detailDoctor.markdown && detailDoctor.markdown.contentHTML
                             &&
                             < div dangerouslySetInnerHTML={{
-                                __html: detaileDoctor.markdown.contentHTML
+                                __html: detailDoctor.markdown.contentHTML
                             }}>
                             </div>
                         }
