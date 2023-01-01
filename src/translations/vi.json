@@ -68,5 +68,13 @@
             "address-clinic": "Địa chỉ phòng khám",
             "note": "Ghi chú"
         }
+    },
+    "detail-doctor": {
+        "doctor-extra-infor": {
+            "price": "Giá khám bệnh",
+            "address-clinic": "Địa chỉ phòng khám",
+            "see-detail": "Xem chi tiết",
+            "hide-price": "Ẩn chi tiết"
+        }
     }
 }

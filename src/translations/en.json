@@ -66,7 +66,16 @@
             "province": "Province",
             "name-clinic": "Name Clinic",
             "address-clinic": "Address Clinic",
-            "note": "Note"
+            "note": "Note",
+            "see-detail": "See details"
+        }
+    },
+    "detail-doctor": {
+        "doctor-extra-infor": {
+            "price": "Price",
+            "address-clinic": "Address Clinic",
+            "see-detail": "See details",
+            "hide-price": "Hide details"
         }
     }
 }

@@ -4,15 +4,18 @@ import './DoctorExtraInfor.scss';
 import localization from 'moment/locale/vi';
 import { LANGUAGES } from '../../../utils';
 import moment from 'moment/moment';
-import { getScheduleDoctorByDate } from '../../../services/userService';
+import { getExtraInforDoctorById } from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
+import NumericFormat from 'react-number-format';
+import { PatternFormat } from 'react-number-format';
 
 class DoctorSchedule extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            iShowDetailInfor: true,
+            iShowDetailInfor: false,
+            extraInfor: {}
         }
     }
 
@@ -24,7 +27,14 @@ class DoctorSchedule extends Component {
         if (this.props.language !== prevProps.language) {
 
         }
-
+        if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
+            let res = await getExtraInforDoctorById(this.props.doctorIdFromParent);
+            if (res && res.errCode === 0) {
+                this.setState({
+                    extraInfor: res.data
+                })
+            }
+        }
     }
 
     showHideDetailInfor = (status) => {
@@ -34,46 +44,87 @@ class DoctorSchedule extends Component {
     }
 
     render() {
-        let { iShowDetailInfor } = this.state;
-
+        let { iShowDetailInfor, extraInfor } = this.state;
+        let { language } = this.props
         return (
             <div className='doctor-extra-infor-container'>
                 <div className='content-up'>
+
                     <div className='text-address'>
-                        Địa chỉ phòng khám
+                        <FormattedMessage id='admin.manage-doctor.address-clinic' />
                     </div>
                     <div className='name-clinic'>
-                        Phòng khám da liễu
+                        {extraInfor && extraInfor.nameClinic ? extraInfor.nameClinic : ''}
                     </div>
                     <div className='detail-address'>
-                        284 Cống Quỳnh, Quận 1, Tp.HCM
+                        {extraInfor && extraInfor.addressClinic ? extraInfor.addressClinic : ''}
                     </div>
                 </div>
                 <div className='content-down'>
                     {iShowDetailInfor === false ?
-                        <div>
-                            Giá khám: 250.000.
-                            <span onClick={() => this.showHideDetailInfor(true)}>
-                                Xem chi tiết
+                        <div className='short-infor'>
+                            <FormattedMessage id='detail-doctor.doctor-extra-infor.price' />:
+                            {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.VI &&
+                                <NumericFormat
+                                    value={extraInfor.priceTypeData.valueVi}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={'VND'}
+                                    className='currency'
+                                />
+                            }
+
+                            {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.EN &&
+                                <NumericFormat
+                                    value={extraInfor.priceTypeData.valueEn}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={'$'}
+                                    className='currency'
+                                />
+                            }
+                            <span onClick={() => this.showHideDetailInfor(true)} style={{ color: 'skyblue', cursor: 'pointer', paddingleft: '10px' }}>
+                                <FormattedMessage id='detail-doctor.doctor-extra-infor.see-detail' />
                             </span>
                         </div>
                         :
                         <>
-                            <div className='title-price'>Giá khám</div>
+                            <div className='title-price'><FormattedMessage id='detail-doctor.doctor-extra-infor.price' /></div>
                             <div className='detail-infor'>
                                 <div className='price'>
-                                    <span className='left'>Giá khám</span>
-                                    <span className='right'>250.000đ</span>
+                                    <span className='left'><FormattedMessage id='detail-doctor.doctor-extra-infor.price' /></span>
+                                    <span className='right'>
+                                        {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.VI &&
+                                            <NumericFormat
+                                                value={extraInfor.priceTypeData.valueVi}
+                                                displayType={'text'}
+                                                thousandSeparator={true}
+                                                suffix={'VND'}
+                                                className='currency'
+                                            />
+                                        }
+
+                                        {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.EN &&
+                                            <NumericFormat
+                                                value={extraInfor.priceTypeData.valueEn}
+                                                displayType={'text'}
+                                                thousandSeparator={true}
+                                                suffix={'$'}
+                                                className='currency'
+                                            />
+                                        }
+                                    </span>
                                 </div>
                                 <div className='note'>
-                                    Giá khám ưu tiên
+                                    {extraInfor && extraInfor.note ? extraInfor.note : ''}
                                 </div>
                             </div>
                             <div className='payment'>
-                                Người bệnh có thể thanh toán bằng hình thức tiền mặt hoặc chuyển khoản
+                                Người bệnh có thể thanh toán bằng hình thức:
+                                {extraInfor && extraInfor.paymentTypeData ? extraInfor.paymentTypeData.valueVi : ''}
                             </div>
-                            <span onClick={() => this.showHideDetailInfor(false)}>
-                                Ẩn bảng giá
+                            <span onClick={() => this.showHideDetailInfor(false)} style={{ color: 'skyblue', cursor: 'pointer' }}>
+                                <FormattedMessage id='detail-doctor.doctor-extra-infor.hide-price' />
                             </span>
                         </>
                     }

@@ -1,5 +1,6 @@
 .doctor-extra-infor-container {
     padding-left: 15px;
+    height: 230px;
 
     .content-up {
         .text-address {
@@ -24,24 +25,22 @@
     .content-down {
         padding-top: 5px;
 
+        .short-infor {
+            .currency {
+                padding: 0 8px;
+            }
+        }
+
         .title-price {
             font-size: 18px;
             font-weight: 600;
-        }
-
-        span {
-            color: #ffc10e;
-            cursor: pointer;
-
-            &:hover {
-                color: red;
-            }
         }
 
         .detail-infor {
             border-radius: 10px 10px 0 0;
             border: 1px solid;
             padding: 5px;
+            background-color: #f8f8f8;
 
             .price {
                 color: black;
