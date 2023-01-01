@@ -53,5 +53,14 @@
             "choose": "Chọn",
             "book-free": "đặt miễn phí"
         }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "TẠO THÊM THÔNG TIN BÁC SĨ",
+            "select-doctor": "Chọn bác sĩ",
+            "intro-infor": "Thông tin giới thiệu",
+            "save-infor": "Lưu thông tin",
+            "create-infor": "Thêm thông tin"
+        }
     }
 }
