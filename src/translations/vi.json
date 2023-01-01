@@ -60,7 +60,13 @@
             "select-doctor": "Chọn bác sĩ",
             "intro-infor": "Thông tin giới thiệu",
             "save-infor": "Lưu thông tin",
-            "create-infor": "Thêm thông tin"
+            "create-infor": "Thêm thông tin",
+            "price": "Giá khám bệnh",
+            "payment": "Phương thức thanh toán",
+            "province": "Tỉnh thành",
+            "name-clinic": "Tên phòng khám",
+            "address-clinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú"
         }
     }
 }
