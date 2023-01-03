@@ -137,7 +137,7 @@ class DoctorSchedule extends Component {
                     </div>
                     <div className='all-available-time'>
                         <div className='text-calender'>
-                            <i class="fas fa-calendar-alt">
+                            <i className="fas fa-calendar-alt">
                                 <span>
                                     <FormattedMessage id="patient.detail-doctor.schedule" />
                                 </span>
@@ -162,7 +162,7 @@ class DoctorSchedule extends Component {
                                     </div>
 
                                     <div className='book-free'>
-                                        <span><FormattedMessage id="patient.detail-doctor.choose" /> <i class="far fa-hand-point-up"></i> <FormattedMessage id="patient.detail-doctor.book-free" /></span>
+                                        <span><FormattedMessage id="patient.detail-doctor.choose" /> <i className="far fa-hand-point-up"></i> <FormattedMessage id="patient.detail-doctor.book-free" /></span>
                                     </div>
                                 </>
                                 :

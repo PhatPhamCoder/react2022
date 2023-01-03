@@ -7,7 +7,6 @@ import moment from 'moment/moment';
 import { getExtraInforDoctorById } from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
 import NumericFormat from 'react-number-format';
-import { PatternFormat } from 'react-number-format';
 
 class DoctorSchedule extends Component {
 
