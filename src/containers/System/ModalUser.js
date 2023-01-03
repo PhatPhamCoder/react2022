@@ -5,8 +5,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { emitter } from '../../utils/emitter';
 
 class ModalUser extends Component {
-
-
     constructor(prop) {
         super(prop);
         this.state = {
