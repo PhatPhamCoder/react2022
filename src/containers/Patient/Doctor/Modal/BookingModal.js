@@ -32,7 +32,6 @@ class BookingModal extends Component {
         //     doctorId = dataTime.doctorId
         // }
         let doctorId = dataTime && !_.isEmpty(dataTime) ? dataTime.doctorId : '';
-        console.log('check :data time', dataTime)
         return (
             <Modal isOpen={isOpenModal}
                 // toggle={ }
@@ -53,6 +52,8 @@ class BookingModal extends Component {
                         <div className='doctor-infor'>
                             <ProfileDoctor
                                 doctorId={doctorId}
+                                isShowDescriptionDoctor={false}
+                                dataTime={dataTime}
                             />
                         </div>
                         {/* <div className='price'>
