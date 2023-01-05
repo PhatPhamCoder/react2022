@@ -44,6 +44,10 @@ class ProfileDoctor extends Component {
         }
     }
 
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     renderTimeBooking = (dataTime) => {
         let { language } = this.props;
         if (dataTime && !_.isEmpty(dataTime)) {
@@ -62,7 +66,7 @@ class ProfileDoctor extends Component {
                         {time} - {date}
                     </div>
                     <div>
-                        Miễn phí đặt lịch
+                        <FormattedMessage id='patient.booking-modal.free-booking' />
                     </div>
                 </>
             )
@@ -107,7 +111,7 @@ class ProfileDoctor extends Component {
                     </div>
                 </div>
                 <div className='price'>
-                    <span>Giá khám:
+                    <span><FormattedMessage id='detail-doctor.doctor-extra-infor.price' />:
                         {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI &&
                             < NumericFormat
                                 value={dataProfile.Doctor_Infor.priceTypeData.valueVi}

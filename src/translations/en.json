@@ -52,6 +52,19 @@
             "no-schedule": "There are currently no appointments available for the time you choose",
             "choose": "Choose",
             "book-free": "book free"
+        },
+        "booking-modal": {
+            "title": "Information to book a medical appointment",
+            "fullname": "Full Name",
+            "phonenumber": "Phone Number",
+            "email": "Email",
+            "address": "Address",
+            "reason": "Reason",
+            "birthday": "Birthday",
+            "sex": "Sex",
+            "free-booking": "Booking Free",
+            "confirm": "Confirm",
+            "cancel": "Cancel"
         }
     },
     "admin": {

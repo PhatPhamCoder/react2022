@@ -52,6 +52,19 @@
             "no-schedule": "Hiện tại không có lịch hẹn trong thời gian bạn chọn",
             "choose": "Chọn",
             "book-free": "đặt miễn phí"
+        },
+        "booking-modal": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "fullname": "Họ và tên",
+            "phonenumber": "Số điện thoại",
+            "email": "Địa chỉ Email",
+            "address": "Địa chỉ liên hệ",
+            "reason": "Lý do khám",
+            "birthday": "Năm Sinh",
+            "sex": "Giới tính",
+            "free-booking": "Miễn phí đặt lịch",
+            "confirm": "Xác nhận",
+            "cancel": "Hủy"
         }
     },
     "admin": {
