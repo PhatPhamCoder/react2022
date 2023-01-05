@@ -51,11 +51,11 @@ class ProfileDoctor extends Component {
     renderTimeBooking = (dataTime) => {
         let { language } = this.props;
         if (dataTime && !_.isEmpty(dataTime)) {
-
             let date = language === LANGUAGES.VI ?
                 moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
                 :
                 moment.unix(+dataTime.date / 1000).locale('en').format('ddd - MM/DD/YYYY')
+
 
             let time = language === LANGUAGES.VI ?
                 dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn;
@@ -81,7 +81,6 @@ class ProfileDoctor extends Component {
             nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.lastName} ${dataProfile.firstName}`
             nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.firstName} ${dataProfile.lastName}`
         }
-        console.log('check state', this.state)
         return (
             <div className='profile-doctor-container'>
                 <div className='intro-doctor'>
