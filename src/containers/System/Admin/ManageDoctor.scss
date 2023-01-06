@@ -1,4 +1,6 @@
 .manage-doctor-container {
+    margin: 0 20px;
+
     .manage-doctor-title {
         padding: 5px;
         text-align: center;
@@ -8,25 +10,24 @@
         font-weight: 600;
     }
 
-    .more-infor {
-        display: flex;
-        width: 100%;
-        margin-bottom: 10px;
-        gap: 15px;
+    // .more-infor {
+    //     display: flex;
+    //     width: 100%;
+    //     margin-bottom: 10px;
+    //     gap: 15px;
 
 
-        .content-left {
-            width: 40%;
-        }
+    //     .content-left {
+    //         width: 40%;
+    //     }
 
-        .content-right {
-            width: 60%;
-        }
-    }
+    //     .content-right {
+    //         width: 60%;
+    //     }
+    // }
 
     .more-infor-extra {
-        width: 100%;
-        padding: 0 15px;
+        padding: 10px 0;
     }
 
     .manage-doctor-editor {
@@ -36,14 +37,16 @@
     .save-content-doctor {
         outline: none;
         border: none;
-        padding: 5px;
+        padding: 5px 0;
         border-radius: 5px;
         font-size: 16px;
+        font-weight: 600;
         background-color: orange;
         color: #fff;
         cursor: pointer;
         display: flex;
         margin: 0 auto;
+        padding: 5px 10px;
 
         &:hover {
             opacity: 0.9;

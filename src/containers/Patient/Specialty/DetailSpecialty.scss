@@ -1,9 +1,23 @@
 .detail-specialty-container {
-    margin: 0;
+    margin-top: 70px;
     padding: 0;
 
     .description-specialty {
-        height: 200px;
+        height: fit-content;
+        margin: 0px 150px;
+        text-align: justify;
+    }
+
+    .search-specialty-doctor {
+        width: 10%;
+        margin: 0px 150px;
+
+        select {
+            outline: none;
+            border: 1px solid #ddd;
+            padding: 3px 5px;
+            border-radius: 5px;
+        }
     }
 
     .detail-specialty-body {
