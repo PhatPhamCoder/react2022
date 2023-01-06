@@ -3,13 +3,16 @@ import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import './DetailSpecialty.scss'
 import HomeHeader from '../../HomePage/HomeHeader';
+import DoctorSchedule from '../Doctor/DoctorSchedule';
+import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
+import ProfileDoctor from '../Doctor/ProfileDoctor';
 
 class ManageSpecialty extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-
+            arrDoctorId: [40, 33, 35]
         }
     }
 
@@ -24,14 +27,44 @@ class ManageSpecialty extends Component {
     }
 
     render() {
+        let { arrDoctorId } = this.state
         return (
-            <>
+            <div className='detail-specialty-container'>
                 <HomeHeader />
-                <div className='detail-specialty-container'>
+                <div className='description-specialty'>
 
                 </div>
-            </>
-
+                <div className='detail-specialty-body'>
+                    {arrDoctorId && arrDoctorId.length > 0 &&
+                        arrDoctorId.map((item, index) => {
+                            return (
+                                <div className='each-doctor'>
+                                    <div className='detail-content-left'>
+                                        <ProfileDoctor
+                                            doctorId={item}
+                                            isShowDescriptionDoctor={true}
+                                        // dataTime={dataTime}
+                                        />
+                                    </div>
+                                    <div className='detail-content-right'>
+                                        <div className='doctor-schedule'>
+                                            <DoctorSchedule
+                                                doctorIdFromParent={item}
+                                                key={index}
+                                            />
+                                        </div>
+                                        <div className='doctor-extra-infor'>
+                                            <DoctorExtraInfor
+                                                doctorIdFromParent={item}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
         );
     }
 }

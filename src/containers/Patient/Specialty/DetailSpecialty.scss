@@ -1,0 +1,51 @@
+.detail-specialty-container {
+    margin: 0;
+    padding: 0;
+
+    .description-specialty {
+        height: 200px;
+    }
+
+    .detail-specialty-body {
+        margin: 20px 150px;
+        padding: 10px 10px;
+
+        .each-doctor {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 10px 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 1px 6px #20212447;
+
+
+            .detail-content-left {
+                width: 50%;
+                border-right: 1px solid #ddd;
+            }
+
+            .detail-content-right {
+                width: 50%;
+                margin: 10px 10px;
+
+                .doctor-schedule {
+                    margin: 10px 0;
+                }
+
+                .doctor-extra-infor {
+                    border-top: 1px solid #ddd;
+                    margin: 10px 0;
+
+                    .doctor-extra-infor-container {
+                        padding-left: 0 !important;
+                    }
+
+                }
+            }
+        }
+    }
+
+
+}
