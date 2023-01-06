@@ -81,7 +81,9 @@
             "name-clinic": "Name Clinic",
             "address-clinic": "Address Clinic",
             "note": "Note",
-            "see-detail": "See details"
+            "see-detail": "See details",
+            "speciality": "Specialty",
+            "clinic": "Choose Clinic"
         }
     },
     "detail-doctor": {

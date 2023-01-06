@@ -28,11 +28,9 @@ class OutStandingDoctor extends Component {
     }
 
     handleViewDetailDoctor = (doctor) => {
-        console.log('Check view info:  ', doctor);
         if (this.props.history) {
             this.props.history.push(`/detail-doctor/${doctor.id}`)
         }
-
     }
 
     render() {
@@ -61,7 +59,10 @@ class OutStandingDoctor extends Component {
                                     let nameVi = `${item.positionData.valueVI}, ${item.lastName} ${item.firstName}`;
                                     let nameEn = `${item.positionData.valueEN}, ${item.firstName} ${item.lastName}`;
                                     return (
-                                        <div className='section-customize' key={index} onClick={() => this.handleViewDetailDoctor(item)}>
+                                        <div
+                                            className='section-customize'
+                                            key={index}
+                                            onClick={() => this.handleViewDetailDoctor(item)}>
                                             <div className='customize-boder'>
                                                 <div className='outer-bg'>
                                                     <div className="bg-image section-outstanding-doctor"
