@@ -32,7 +32,57 @@ class ManageSpecialty extends Component {
             });
 
             let resProvince = await getAllCodeService('PROVINCE');
+
             if (res && res.errCode === 0 && resProvince && resProvince.errCode === 0) {
+                let data = res.data;
+                let arrDoctorId = [];
+                if (data && !_.isEmpty(res.data)) {
+                    let arr = data.doctorSpecialty;
+                    if (arr && arr.length > 0) {
+                        arr.map(item => {
+                            arrDoctorId.push(item.doctorId)
+                        })
+                    }
+                }
+
+                let dataProvince = resProvince.data;
+                if (dataProvince && dataProvince.length > 0) {
+                    dataProvince.unshift({
+                        createdAt: null,
+                        keyMap: "ALL",
+                        type: "PROVINCE",
+                        valueEN: "ALL",
+                        valueVI: "Toàn quốc",
+                    })
+                }
+
+                this.setState({
+                    dataDetailSpecialty: res.data,
+                    arrDoctorId: arrDoctorId,
+                    listProvince: dataProvince ? dataProvince : []
+                })
+            }
+        }
+    }
+
+
+    async componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.language !== prevProps.language) {
+
+        }
+    }
+
+    handleOnChangeSelect = async (event) => {
+        if (this.props.match && this.props.match.params && this.props.match.params.id) {
+            let id = this.props.match.params.id;
+            let location = event.target.value;
+
+            let res = await getDetailSpecialtyById({
+                id: id,
+                location: location
+            });
+
+            if (res && res.errCode === 0) {
                 let data = res.data;
                 let arrDoctorId = [];
                 if (data && !_.isEmpty(res.data)) {
@@ -46,26 +96,14 @@ class ManageSpecialty extends Component {
                 this.setState({
                     dataDetailSpecialty: res.data,
                     arrDoctorId: arrDoctorId,
-                    listProvince: resProvince.data
                 })
             }
         }
     }
 
-    async componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.language !== prevProps.language) {
-
-        }
-    }
-
-    handleOnChangeSelect = (event) => {
-        console.log('check on change', event.target.value)
-    }
-
     render() {
         let { arrDoctorId, dataDetailSpecialty, listProvince } = this.state;
         let { language } = this.props;
-        console.log('check state', this.state)
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
@@ -73,7 +111,7 @@ class ManageSpecialty extends Component {
                     {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty) &&
                         < div dangerouslySetInnerHTML={{
                             __html: dataDetailSpecialty.name
-                        }}>
+                        }} className='specialty-title'>
                         </div>
                     }
                     {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty) &&
@@ -88,9 +126,11 @@ class ManageSpecialty extends Component {
                         {listProvince && listProvince.length > 0 &&
                             listProvince.map((item, index) => {
                                 return (
-                                    <option key={index} value={item.keyMap}>
-                                        {language === LANGUAGES.VI ? item.valueVI : item.valueEN}
-                                    </option>
+                                    <>
+                                        <option key={index} value={item.keyMap}>
+                                            {language === LANGUAGES.VI ? item.valueVI : item.valueEN}
+                                        </option>
+                                    </>
                                 )
                             })
                         }
@@ -105,6 +145,8 @@ class ManageSpecialty extends Component {
                                         <ProfileDoctor
                                             doctorId={item}
                                             isShowDescriptionDoctor={true}
+                                            isShowLinkDetail={true}
+                                            isShowPrice={false}
                                         // dataTime={dataTime}
                                         />
                                     </div>

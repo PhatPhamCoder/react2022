@@ -30,6 +30,12 @@ class DoctorSchedule extends Component {
             })
         }
 
+        let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
+        this.setState({
+            availableTime: res.data ? res.data : []
+        })
+
+
     }
 
     capitalizeFirstLetter(string) {
@@ -119,9 +125,7 @@ class DoctorSchedule extends Component {
             <>
                 <div className='doctor-schedule-container'>
                     <div className='all-schedule'>
-                        <select
-                            onChange={(event) => this.handleOnChangeSelect(event)}
-                        >
+                        <select onChange={(event) => this.handleOnChangeSelect(event)}>
                             {allDays && allDays.length > 0 &&
                                 allDays.map((item, index) => {
                                     return (
@@ -133,7 +137,6 @@ class DoctorSchedule extends Component {
                                         </option>
                                     )
                                 })}
-
                         </select>
                     </div>
                     <div className='all-available-time'>
