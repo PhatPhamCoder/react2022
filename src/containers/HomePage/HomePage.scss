@@ -52,6 +52,19 @@
         .name {
             cursor: pointer;
 
+            &:hover {
+                color: #45c3d2;
+            }
+        }
+
+    }
+
+    &.section-medical-facility {
+        background: #f5f5f5;
+        cursor: pointer;
+
+        .name {
+            cursor: pointer;
 
             &:hover {
                 color: #45c3d2;
@@ -86,7 +99,8 @@
                 }
 
                 &.section-medical-facility {
-                    background-image: url('../../assets/medical-facility/thu-cuc.jpg');
+
+                    // background-image: url('../../assets/medical-facility/thu-cuc.jpg');
                 }
 
                 &.section-outstanding-doctor {
