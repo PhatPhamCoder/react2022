@@ -8,9 +8,7 @@ import './Header.scss';
 import { LANGUAGES, USER_ROLE } from "../../utils";
 import _ from 'lodash';
 
-
 class Header extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -37,7 +35,7 @@ class Header extends Component {
         this.setState({
             menuApp: menu
         })
-        console.log('check user info', this.props.userInfo)
+        console.log(`Stop! This is a browser feature intended for developers. If someone told you to copy and paste something here to enable a Facebook feature or hack someone account, it is a scam and will give them access to your Facebook account`)
     }
 
     render() {

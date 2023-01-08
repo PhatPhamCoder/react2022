@@ -1,3 +1,8 @@
+div._loading_overlay_wrapper {
+    position: unset;
+    z-index: 9999999 !important;
+}
+
 .manage-patient-container {
     .manage-patient-title {
         font-size: 20px;
@@ -40,11 +45,16 @@
         }
 
         .btn-action-patient {
-            display: flex;
-            gap: 10px;
-            padding: 2px 5px;
-            margin: 0 auto;
-            flex-grow: initial;
+            .btn-primary {
+                width: 80%;
+                font-size: 16px;
+                font-weight: 600;
+                border: none;
+
+                &:hover {
+                    background-color: orange;
+                }
+            }
 
         }
     }
