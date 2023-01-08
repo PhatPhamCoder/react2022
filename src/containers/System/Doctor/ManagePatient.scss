@@ -12,21 +12,40 @@
     }
 
     .table-manage-patient {
+
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
-        td,
         th {
-            border: 1px solid #dddddd;
-            text-align: left;
+            border: 1px solid #dddd;
+            text-align: center;
             padding: 8px;
+            color: #f8f6ff;
+            background-color: #6c7ae0;
+        }
+
+        td {
+            padding: 5px 10px;
+            text-align: center;
         }
 
         tr:nth-child(even) {
-            background-color: #dddddd;
+            background-color: #f8f6ff;
+        }
+
+        .btn-action-patient {
+            display: flex;
+            gap: 10px;
+            padding: 2px 5px;
+            margin: 0 auto;
+            flex-grow: initial;
+
         }
     }
 
