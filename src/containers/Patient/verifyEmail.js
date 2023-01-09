@@ -5,7 +5,7 @@ import { postVerifyBookAppointment } from '../../services/userService';
 import HomeHeader from '../HomePage/HomeHeader';
 import HomeFooter from '../HomePage/Section/HomeFooter';
 import './verifyEmail.scss'
-import { flatMap } from 'lodash';
+
 class verifyEmail extends Component {
 
     constructor(props) {

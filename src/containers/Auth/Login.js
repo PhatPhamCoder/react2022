@@ -69,6 +69,7 @@ class Login extends Component {
             this.handleLogin();
         }
     }
+
     render() {
         return (
             <div className="login-background">
@@ -99,7 +100,6 @@ class Login extends Component {
                                     onClick={() => { this.handleShowHidePassword() }}>
                                     <i className={this.state.isShowPassword ? "fas fa-eye" : "fas fa-eye-slash"}></i>
                                 </span>
-
                             </div>
                         </div>
                         <div className='col-12' style={{ color: 'red' }}>
